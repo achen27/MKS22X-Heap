@@ -9,7 +9,16 @@ public class MyHeap {
     - precondition: size is between 0 and data.length-1 inclusive.
   */
   private static void pushDown(int[]data,int size,int index){
+    while (//index...has children && at least one child is larger){
+      //check for second child??
+      int child;
+      //compare children
+      //if there is a child larger than temp
+      //swap with larger of the two children
+      //change index and loop again
+      //if there is no larger child --> return
 
+    }
   }
 
   /*- push the element at index i up into the correct position.
@@ -18,7 +27,10 @@ public class MyHeap {
     - precondition: index is between 0 and data.length-1 inclusive.
   */
   private static void pushUp(int[]data,int index){
-
+    while (//not root && parent root is not larger){
+      int parent;
+      //swap with parent
+    }
   }
 
   //- convert the array into a valid heap.
