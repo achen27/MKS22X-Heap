@@ -1,6 +1,6 @@
 public class MyHeap {
 
-  /*- size is the number of elements in the data array.  
+  /*- size is the number of elements in the data array.
     - push the element at index i downward into the correct position.
       This will swap with the larger of the child nodes provided thatchild is larger.
       This stops when a leaf is reached, or neither child is larger.
@@ -23,14 +23,14 @@ public class MyHeap {
 
   //- convert the array into a valid heap.
   //  [ should be O(n) ]
-  public static void heapify(int[]){
+  public static void heapify(int[]data){
 
 
   }
 
   //- sort the array by converting it into a heap then removing the largest value n-1 times.
   //  [ should be O(nlogn) ]
-  public static void heapsort(int[]){
+  public static void heapsort(int[]data){
 
   }
 
