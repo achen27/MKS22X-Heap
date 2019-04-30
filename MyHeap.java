@@ -10,15 +10,19 @@ public class MyHeap {
   */
   private static void pushDown(int[]data,int size,int index){
     while (index * 2 + 1 < size){
+      System.out.println(HeapHelp.toString(data));
+      System.out.println(index * 2 + 2 < size);
       if (index * 2 + 2 < size){
-        int child1 = index * 2 + 1;
-        int child2 = index * 2 + 2;
+        int child1 = data[index * 2 + 1];
+        int child2 = data[index * 2 + 2];
         if (child1 > child2 && child1 > data[index]){
+          System.out.println("a");
           int temp = child1;
           data[index * 2 + 1] = data[index];
           data[index] = temp;
           index = index * 2 + 1;
         } else if (child2 > child1 && child2 > data[index]){
+          System.out.println("b");
           int temp = child2;
           data[index * 2 + 2] = data[index];
           data[index] = temp;
@@ -27,7 +31,7 @@ public class MyHeap {
           return;
         }
       } else {
-        int child1 = index * 2 + 1;
+        int child1 = data[index * 2 + 1];
         if (child1 > data[index]){
           int temp = child1;
           data[index * 2 + 1] = data[index];
@@ -51,7 +55,7 @@ public class MyHeap {
       [ should be O(logn) ]
     - precondition: index is between 0 and data.length-1 inclusive.
   */
-  private static void pushUp(int[]data,int index){
+  /*private static void pushUp(int[]data,int index){
     while (//not root && parent root is not larger){
       int parent;
       //swap with parent
@@ -69,6 +73,13 @@ public class MyHeap {
   //  [ should be O(nlogn) ]
   public static void heapsort(int[]data){
 
+  }*/
+
+  public static void main(String args[]){
+    int[] data = {2,36,41,6,5,8,1,3,1};
+    System.out.println(HeapHelp.toString(data));
+    pushDown(data,data.length,0);
+    System.out.println(HeapHelp.toString(data));
   }
 
 }
