@@ -49,7 +49,7 @@ public class MyHeap {
   private static void pushUp(int[]data,int index){
     while (index != 0){
       int parent = data[(index-1)/2];
-      if (index > parent){
+      if (data[index] > parent){
         int temp = parent;
         data[(index-1)/2] = data[index];
         data[index] = temp;
@@ -74,9 +74,10 @@ public class MyHeap {
   }*/
 
   public static void main(String args[]){
-    int[] data = {2,36,41,6,5,8,1,3,1};
+    int[] data = {8,4,7,3,1,6,2,2,6};
     System.out.println(HeapHelp.toString(data));
-    pushDown(data,data.length,0);
+    //pushDown(data,data.length,0);
+    pushUp(data,8);
     System.out.println(HeapHelp.toString(data));
   }
 
