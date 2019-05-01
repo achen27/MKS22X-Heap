@@ -72,12 +72,12 @@ public class MyHeap {
   //- sort the array by converting it into a heap then removing the largest value n-1 times.
   //  [ should be O(nlogn) ]
   public static void heapsort(int[]data){
-    heapify(data);
-    for(int i = data.length-1; i >= 0; i--){
-      int largest = data[0];
-      data[0] = data[i];
+    heapify(data); //changes data into heap
+    for(int i = data.length-1; i >= 0; i--){ //looping from back to front
+      int largest = data[0]; //stores largest number
+      data[0] = data[i]; //swaps largest number to proper position
       data[i] = largest;
-      pushDown(data,i,0);
+      pushDown(data,i,0); //pushes down swapped value
     }
   }
 
