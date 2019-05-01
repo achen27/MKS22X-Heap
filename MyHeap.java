@@ -70,15 +70,22 @@ public class MyHeap {
 
   //- sort the array by converting it into a heap then removing the largest value n-1 times.
   //  [ should be O(nlogn) ]
-  /*public static void heapsort(int[]data){
-
-  }*/
+  public static void heapsort(int[]data){
+    heapify(data);
+    for(int i = data.length; i >= 1; i--){
+      int largest = data[0];
+      data[0] = data[i];
+      data[i] = largest;
+      pushDown(data,i,0);
+    }
+  }
 
   public static void main(String args[]){
-    int[] data = {8,4,7,3,1,6,2,2,6};
+    int[] data = {3,5,32,446,7,4784,7,43,4,3436,6564,532,4,7,786,2};
     System.out.println(HeapHelp.toString(data));
     //pushDown(data,data.length,0);
-    pushUp(data,8);
+    //pushUp(data,8);
+    heapsort(data);
     System.out.println(HeapHelp.toString(data));
   }
 
