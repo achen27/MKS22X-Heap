@@ -48,15 +48,15 @@ public class MyHeap {
     - precondition: index is between 0 and data.length-1 inclusive.
   */
   private static void pushUp(int[]data,int index){
-    while (index != 0){
+    while (index != 0){ //not the root
       int parent = data[(index-1)/2];
-      if (data[index] > parent){
-        int temp = parent;
+      if (data[index] > parent){ //is larger than parent
+        int temp = parent; //swap values
         data[(index-1)/2] = data[index];
         data[index] = temp;
         index = (index-1)/2;
-      } else {
-        return;
+      } else { //not larger than parent
+        return; //exit function
       }
     }
   }
@@ -64,8 +64,8 @@ public class MyHeap {
   //- convert the array into a valid heap.
   //  [ should be O(n) ]
   public static void heapify(int[]data){
-    for(int i = data.length; i >= 0; i--){
-      pushDown(data, data.length, i);
+    for(int i = data.length; i >= 0; i--){ //looping from back to front
+      pushDown(data, data.length, i); //push all values down to valid positions
     }
   }
 
