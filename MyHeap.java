@@ -62,14 +62,15 @@ public class MyHeap {
 
   //- convert the array into a valid heap.
   //  [ should be O(n) ]
-  /*public static void heapify(int[]data){
-
-
+  public static void heapify(int[]data){
+    for(int i = data.length; i >= 0; i--){
+      pushDown(data, data.length, i);
+    }
   }
 
   //- sort the array by converting it into a heap then removing the largest value n-1 times.
   //  [ should be O(nlogn) ]
-  public static void heapsort(int[]data){
+  /*public static void heapsort(int[]data){
 
   }*/
 
