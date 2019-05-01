@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class MyHeap {
 
   /*- size is the number of elements in the data array.
@@ -72,7 +74,7 @@ public class MyHeap {
   //  [ should be O(nlogn) ]
   public static void heapsort(int[]data){
     heapify(data);
-    for(int i = data.length; i >= 1; i--){
+    for(int i = data.length-1; i >= 0; i--){
       int largest = data[0];
       data[0] = data[i];
       data[i] = largest;
