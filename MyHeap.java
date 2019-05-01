@@ -11,35 +11,34 @@ public class MyHeap {
     - precondition: size is between 0 and data.length-1 inclusive.
   */
   private static void pushDown(int[]data,int size,int index){
-    while (index * 2 + 1 < size){
-      if (index * 2 + 2 < size){
+    while (index * 2 + 1 < size){ //has at least one child (not a leaf)
+      if (index * 2 + 2 < size){ //has two children
         int child1 = data[index * 2 + 1];
         int child2 = data[index * 2 + 2];
-        if (child1 > child2 && child1 > data[index]){
-          int temp = child1;
+        if (child1 > child2 && child1 > data[index]){ //first child is larger than second child and is greater than parent
+          int temp = child1; //swap values
           data[index * 2 + 1] = data[index];
           data[index] = temp;
-          index = index * 2 + 1;
-        } else if (child2 > child1 && child2 > data[index]){
-          int temp = child2;
+          index = index * 2 + 1; //update index
+        } else if (child2 > child1 && child2 > data[index]){ //second child is larger than first child and is greater than parent
+          int temp = child2; //swap values
           data[index * 2 + 2] = data[index];
           data[index] = temp;
-          index = index * 2 + 2;
-        } else {
-          return;
+          index = index * 2 + 2; //update index
+        } else { //children are not larger
+          return; //exit function
         }
-      } else {
+      } else { //only one child
         int child1 = data[index * 2 + 1];
-        if (child1 > data[index]){
-          int temp = child1;
+        if (child1 > data[index]){ //child is greater than parent
+          int temp = child1; //swap values
           data[index * 2 + 1] = data[index];
           data[index] = temp;
-          index = index * 2 + 1;
-        } else {
-          return;
+          index = index * 2 + 1; //update index
+        } else { //child is not greater
+          return; //exit method
         }
       }
-
     }
   }
 
