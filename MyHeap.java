@@ -10,19 +10,15 @@ public class MyHeap {
   */
   private static void pushDown(int[]data,int size,int index){
     while (index * 2 + 1 < size){
-      System.out.println(HeapHelp.toString(data));
-      System.out.println(index * 2 + 2 < size);
       if (index * 2 + 2 < size){
         int child1 = data[index * 2 + 1];
         int child2 = data[index * 2 + 2];
         if (child1 > child2 && child1 > data[index]){
-          System.out.println("a");
           int temp = child1;
           data[index * 2 + 1] = data[index];
           data[index] = temp;
           index = index * 2 + 1;
         } else if (child2 > child1 && child2 > data[index]){
-          System.out.println("b");
           int temp = child2;
           data[index * 2 + 2] = data[index];
           data[index] = temp;
@@ -41,11 +37,6 @@ public class MyHeap {
           return;
         }
       }
-      //compare children
-      //if there is a child larger than temp
-      //swap with larger of the two children
-      //change index and loop again
-      //if there is no larger child --> return
 
     }
   }
@@ -55,16 +46,23 @@ public class MyHeap {
       [ should be O(logn) ]
     - precondition: index is between 0 and data.length-1 inclusive.
   */
-  /*private static void pushUp(int[]data,int index){
-    while (//not root && parent root is not larger){
-      int parent;
-      //swap with parent
+  private static void pushUp(int[]data,int index){
+    while (index != 0){
+      int parent = data[(index-1)/2];
+      if (index > parent){
+        int temp = parent;
+        data[(index-1)/2] = data[index];
+        data[index] = temp;
+        index = (index-1)/2;
+      } else {
+        return;
+      }
     }
   }
 
   //- convert the array into a valid heap.
   //  [ should be O(n) ]
-  public static void heapify(int[]data){
+  /*public static void heapify(int[]data){
 
 
   }
